@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To‑Do ✨</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-decor">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <main class="card">
+    <header class="header">
+      <div class="title">
+        <span class="logo">🌸</span>
+        <h1>to‑do</h1>
+      </div>
+      <p class="tagline">turn your to‑dos into to‑dones</p>
+    </header>
+
+    <section class="controls" aria-label="Add a new task">
+      <input id="input-box" class="input" type="text" maxlength="120"
+             placeholder="Add a task… e.g., ‘Review lesson plan’" aria-label="Task text"/>
+      <button id="add-btn" class="btn primary" aria-label="Add task">Add</button>
+    </section>
+
+    <section class="meta">
+      <div class="counters" aria-live="polite">
+        <span>✅ <strong id="completed-counter">0</strong> done</span>
+        <span>•</span>
+        <span>✊ <strong id="uncompleted-counter">0</strong> to do</span>
+      </div>
+      <div class="filters" role="tablist" aria-label="Filter tasks">
+        <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-filter="active" role="tab" aria-selected="false">Active</button>
+        <button class="chip" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+      </div>
+    </section>
+
+    <ul id="list-container" class="list" aria-label="Task list"></ul>
+
+    <footer class="footer">
+      <button id="clear-completed" class="btn ghost">Clear completed</button>
+      <button id="export-json" class="btn ghost">Export</button>
+      <button id="import-json" class="btn ghost">Import JSON file</button>
+      <input id="import-file" type="file" accept="application/json" hidden />
+    </footer>
+  </main>
+
+  <template id="item-template">
+    <li class="item">
+      <label class="check">
+        <input type="checkbox" class="toggle" />
+        <span class="tick" aria-hidden="true"></span>
+      </label>
+      <span class="text" contenteditable="false"></span>
+      <div class="actions">
+        <button class="icon edit" title="Edit" aria-label="Edit task">✏️</button>
+        <button class="icon delete" title="Delete" aria-label="Delete task">🗑️</button>
+      </div>
+    </li>
+  </template>
+
+  <div id="confetti" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
